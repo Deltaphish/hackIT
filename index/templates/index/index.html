@@ -1,0 +1,27 @@
+{% extends "index/base.html" %}
+
+{% block head %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'index/index.css' %}">
+{% endblock %}
+{% block content %}
+    {% if login %}
+        <h1> Welcome! {{login}}</h1>
+    {% else %}
+        <h1> Welcome! </h1>
+    {% endif %}
+        {% if topic_list %}
+            <div id="topic-container">
+                {% for topic in topic_list %}
+                <a href="{{ topic.link }}">
+                    <div class="topic">
+                        <h3>{{topic.header}}</h3>
+                        <p>{{topic.description}}</p>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Huh, there seems to be a problem in the backend. Please inform a member of digit!</p>
+        {% endif %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "index/base.html" %}
+
+{% block head %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'index/login.css' %}">
+{% endblock %}
+{% block content %}
+    <a href=https://github.com/login/oauth/authorize?client_id={{client_id}}&state={{state}}>Login with github</a>
+{% endblock %}

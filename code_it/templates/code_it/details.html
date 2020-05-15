@@ -1,0 +1,27 @@
+{% extends "index/base.html" %}
+
+{% block head %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'code_it/details.css' %}">
+{% endblock %}
+{% block content %}
+        {% if challenges %}
+            <div id="challenge-container">
+                <h1>{{title}}</h1>
+                {% for challenge in challenges %}
+                    <p>{{challenge.description | linebreaks}}</p>
+                {% endfor %}
+                <p id="prompt">{{prompt |wordwrap:20}}</p>
+                <form action="/code/answer" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="challenge_id" value="{{id}}"/>
+                    <input type="hidden" name="challenge_level" value="{{current_challenge}}" />
+                    <label>Answer:</label>
+                    <input type="text" name="answer"/>
+                    <input type="submit" value="check"/>
+                </form>
+            </div>
+        {% else %}
+            <p>Huh, there seems to be a problem in the backend. Please inform a member of digit!</p>
+        {% endif %}
+{% endblock %}

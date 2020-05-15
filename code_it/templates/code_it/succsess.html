@@ -1,0 +1,10 @@
+{% extends "index/base.html" %}
+
+{% block head %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'code_it/details.css' %}">
+{% endblock %}
+{% block content %}
+	<h1>Congratulations, you have completed {{title}}!</h1>
+	<a href="/code/reset?id={{id}}">Reset</a>
+{% endblock %}

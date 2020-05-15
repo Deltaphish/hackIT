@@ -1,0 +1,23 @@
+{% extends "index/base.html" %}
+
+{% block head %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'code_it/index.css' %}">
+{% endblock %}
+{% block content %}
+        <a href="{% url 'index'%}"><h3> &lt- Return</h3></a>
+        <h2> Current challenges:</h2>
+        {% if challenge_list %}
+            <div id="challenges">
+                {% for c in challenge_list %}
+                <a href="{{ c.id }}">
+                    <div id="challenge_container">
+                        <h3>{{c.title}}</h3>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Huh, there seems to be a problem in the backend. Please inform a member of digit!</p>
+        {% endif %}
+{% endblock %}

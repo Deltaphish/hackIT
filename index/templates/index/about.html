@@ -1,0 +1,14 @@
+{% extends "index/base.html" %}
+
+{% block head %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'index/index.css' %}">
+{% endblock %}
+{% block content %}
+	<h3>About</h3>
+	<p>	Hackit goal is to build a better programming community at IT chalmers by centralizing relevant resources and
+		encouraging personal development through programming challenges.
+	</p>
+	<p>All challenges has been created by students at it</p>
+	<p>If you have an idea for a challenge, contact a member of digit or create a pullrequest att hackit's github repo</p>
+{% endblock %}

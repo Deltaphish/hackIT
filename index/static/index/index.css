@@ -1,0 +1,27 @@
+#topic-container{
+    display: flex;
+    flex-wrap:wrap;
+}
+
+#topic-container a{
+    text-decoration: none;
+    color: var(--main-txt-color);
+    font-family: headerFont;
+}
+
+.topic{
+    width: 200px;
+    height: 300px;
+    border: 2px solid var(--main-txt-color);
+
+    margin:10px;
+}
+
+.topic h3{
+    text-align: center;
+    border-bottom: 2px solid var(--main-txt-color);
+}
+
+.topic p{
+    margin: 5px;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>HackIT</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index/base.css' %}">
+    {% block head %}{% endblock %}
+    <title>{% block title %}HackIT{% endblock %}</title>
+</head>
+
+<body>
+    <div id="nav-bar">
+        <a href="{% url 'index'%}">
+        <img id="main-logo" src="{% static 'index/Hackit_logo.webp' %}" alt="HackIT logo"/>
+        </a>
+        <h1>HackIT</h1>
+        <nav>
+            <a href="/about">About</a>
+            {% if login %}
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+            {% endif %}
+
+        </nav>
+    </div>
+    <div id="side-bar">
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

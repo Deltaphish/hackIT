@@ -1,0 +1,15 @@
+{% extends "index/base.html" %}
+
+{% block head %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'index/login.css' %}">
+{% endblock %}
+{% block content %}
+    <h1>Register</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="username"/>
+        <input type="password" name="password"/>
+        <input type="submit"/>
+    </form>
+{% endblock %}
